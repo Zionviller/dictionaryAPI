@@ -2,33 +2,18 @@ console.log("Yeep!");
 
 var xhr = new XMLHttpRequest();
 
-var searchBox = document.getElementById('wordToAnagram');
-var goButton = document.getElementById('findAnagram');
+var searchBox = document.getElementById('wordToSearch');
+var goButton = document.getElementById('submit');
 
 var resultsData = [];
 var resultsHTML = "";
 var resultsDIV = document.getElementById('results');
 
-var isAllAnagrams = true;
-var isAllAnagramsCheckbox = document.getElementById('isAllAnagrams');
-checkBind();
-
 goButton.addEventListener('mouseup', doSearch, false);
-isAllAnagramsCheckbox.addEventListener('change', checkBind, false);
-
-function checkBind() {
-  isAllAnagrams = isAllAnagramsCheckbox.checked;
-}
 
 function doSearch() {
   var query = searchBox.value.replace(/[^a-zA-Z]/g, '');
   console.log("Search is: " + query);
-
-  if(isAllAnagrams)  {
-    xhr.open('GET', 'https://www.anagramica.com/all/:' + searchBox.value, true);
-  } else {
-    xhr.open('GET', 'https://www.anagramica.com/best/:' + searchBox.value, true);
-  }
 
   xhr.send(null);
 

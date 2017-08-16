@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Anagrams</title>
+    <title>Dictionary</title>
   </head>
   <body>
     <div id="content" class="centered">
       <div id="header">
-        <h1 id="title">anagrams</h1>
+        <h1 id="title">dictionary</h1>
       </div>
 
       <div id="search">
-        <input type="text" id="wordToAnagram" placeholder="Enter a word." />
-        <input type="submit" id="findAnagram" value="Find Anagrams" />
-        <p>All Anagram Combinations<input type="checkbox" id="isAllAnagrams" /></p>
+        <form>
+          <input type="text" id="wordToSearch" placeholder="Find a word." />
+          <input type="submit" id="submit" value="Find Definition" />
+        </form>
       </div>
 
       <div id="results">
@@ -32,7 +33,7 @@
       </div>
 
       <div id="footer">
-        <p>Powered by <a href="http://www.anagramica.com/">ANAGRAMICA</a></p>
+        <p>Powered by <a href="https://www.dictionaryapi.com/">Merriam-Webster Online</a></p>
       </div>
     </div>
     <script type="text/javascript" src="js/main.js"></script>
