@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Volkhov');
+
+body {
+  background-color: #DEB887;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Volkhov', serif;
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 2px 2px 1px #242;
+}
+
+#results {
+  font-size: 3em;
+  /*border-style: solid;
+  border-color: #333;
+  border-width: 1px;*/
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: inset 2px 2px 3px #888;
+  padding: 10px;
+}
+
+#results p {
+  display: inline;
+}
+
+a {
+  color: #555;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #777;
+}
+
+a:hover {
+  color: #999;
+}
+
+#content {
+  width: 800px;
+}
+
+#title {
+
+}
+
+.centered {
+  margin: 10px auto 10px auto;
+}
