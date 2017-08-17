@@ -1,2 +1,2 @@
 # dictionaryAPI
-Playing with https://www.dictionaryapi.com/
+Playing with https://api.datamuse.com/
