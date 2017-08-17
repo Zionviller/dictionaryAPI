@@ -5,9 +5,17 @@ var xhr = new XMLHttpRequest();
 var searchBox = document.getElementById('wordToSearch');
 var goButton = document.getElementById('submit');
 
-var resultsData = [];
-var resultsHTML = "";
+var XMLParser = new DOMParser();
+var data;
+var definitions;
 var resultsDIV = document.getElementById('results');
+
+xhr.onreadystatechange = function() {
+  if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    data = JSON.parse(xhr.responseText);
+    displayResults();
+  }
+};
 
 goButton.addEventListener('mouseup', doSearch, false);
 
@@ -15,32 +23,18 @@ function doSearch() {
   var query = searchBox.value.replace(/[^a-zA-Z]/g, '');
   console.log("Search is: " + query);
 
+  xhr.open('GET', 'https://api.datamuse.com/words?rel_syn=' + query, true);
   xhr.send(null);
-
-  displayResults();
 }
 
 function displayResults() {
-  if(resultsData.length == 0) {
-    resultsDIV.innerHTML = "<p>No results.</p>";
+  if(data.length >= 5) {
+    for(var i = 0; i < 5; i++) {
+      console.log(data[i]);
+    }
   } else {
-    resultsDIV.innerHTML = '';
-
-    for(var i = 0; i < resultsData.length; i++) {
-      resultsDIV.innerHTML += "<p>" + resultsData[i] + "</p>";
-
+    for(var i = 0; i < data.length; i++){
+      console.log(data[i]);
     }
   }
 }
-
-xhr.onload = function() {
-  if(xhr.status === 200) {
-    if(isAllAnagrams) {
-      resultsData = JSON.parse(xhr.responseText).all;
-    } else {
-      resultsData = JSON.parse(xhr.responseText).best;
-    }
-
-    console.log(resultsData);
-  }
-};
